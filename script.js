@@ -25,10 +25,10 @@ $(document).ready(function(){
         success: function(results){
             console.log(x)
             console.log(results);
-            if (results[winner] == 'Rock'){
+            if (results[0] == 'Rock'){
                 console.log("You Won!")
             }
-            if (results[winner] == 'None - Draw'){
+            if (results[0] == 'None - Draw'){
                 console.log("It was a draw...")
             }
             else{
