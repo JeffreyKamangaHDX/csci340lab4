@@ -33,6 +33,12 @@ $(document).ready(function(){
             }
             else{
                 console.log("You LOST :(")
+                $.ajax({
+                    url: "https://api.kanye.rest",
+                    success: function(q){
+                        console.log(q["quote"])
+                    }
+                })
             }
             },
         error: function(xhr,status,error){
@@ -48,6 +54,15 @@ $(document).ready(function(){
         success: function(results){
             console.log(x)
             console.log(results);
+            if (results[0] == 'Paper'){
+                console.log("You Won!")
+            }
+            if (results[0] == 'None - Draw'){
+                console.log("It was a draw...")
+            }
+            else{
+                console.log("You LOST :(")
+            }
             },
         error: function(xhr,status,error){
             console.log(xhr);
@@ -62,6 +77,15 @@ $(document).ready(function(){
         success: function(results){
             console.log(x)
             console.log(results);
+            if (results[0] == 'Scissors'){
+                console.log("You Won!")
+            }
+            if (results[0] == 'None - Draw'){
+                console.log("It was a draw...")
+            }
+            else{
+                console.log("You LOST :(")
+            }
             },
         error: function(xhr,status,error){
             console.log(xhr);
