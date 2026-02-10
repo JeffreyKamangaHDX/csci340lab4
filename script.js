@@ -25,20 +25,19 @@ $(document).ready(function(){
         success: function(results){
             console.log(x);
             console.log(results);
-            if (results[0] == 'Rock'){
+            if (results["winner"] == 'Rock'){
                 console.log("You Won!");
                 $.ajax({
                     url: "https://zenquotes.io/api/quotes/",
                     success: function(z){
                         console.log(z);
                     }
-
-                })
+                });
             }
-            else if (results[0] == 'None - Draw'){
+            else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
             }
-            else{
+            else {
                 console.log("You LOST :(");
                 $.ajax({
                     url: "https://api.kanye.rest",
@@ -46,7 +45,7 @@ $(document).ready(function(){
                         $('#quoteLine').text(q["quote"]);
                         console.log(q["quote"]);
                     }
-                })
+                });
             }
             },
         error: function(xhr,status,error){
