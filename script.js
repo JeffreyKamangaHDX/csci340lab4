@@ -27,18 +27,21 @@ $(document).ready(function(){
             if (results["winner"] == 'Rock'){
                 console.log("You Won!");
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
+                $('#winOrLoss').text("Win");
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
+                $('#winOrLoss').text("Draw");
             }
             else {
                 console.log("You LOST :(");
                 $.ajax({
                     url: "https://api.kanye.rest",
                     success: function(q){
-                        $('#quoteLine').text(q["quote"]);
+                        $('#quoteLine').text(q["quote"]+" - Kanye");
                         console.log(q["quote"]);
+                        $('#winOrLoss').text("Loss");
                     }
                 });
             }
@@ -58,18 +61,21 @@ $(document).ready(function(){
             if (results["winner"] == 'Paper'){
                 console.log("You Won!");
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
+                $('#winOrLoss').text("Win");
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
+                $('#winOrLoss').text("Draw");
             }
             else{
                 console.log("You LOST :(");
                 $.ajax({
                     url: "https://api.kanye.rest",
                     success: function(q){
-                        $('#quoteLine').text(q["quote"]);
+                        $('#quoteLine').text(q["quote"]+" - Kanye");
                         console.log(q["quote"]);
+                        $('#winOrLoss').text("Lost");
                     }
                 });
             }
@@ -89,10 +95,12 @@ $(document).ready(function(){
             if (results["winner"] == 'Scissors'){
                 console.log("You Won!");
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
+                $('#winOrLoss').text("Win");
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
+                $('#winOrLoss').text("Draw");
             }
             else{
                 console.log("You LOST :(");
@@ -100,7 +108,8 @@ $(document).ready(function(){
                     url: "https://api.kanye.rest",
                     success: function(q){
                         $('#quoteLine').text(q["quote"]);
-                        console.log(q["quote"]);
+                        console.log(q["quote"]+" - Kanye");
+                        $('#winOrLoss').text("Loss");
                     }
                 });
             }
