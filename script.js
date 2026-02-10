@@ -55,11 +55,11 @@ $(document).ready(function(){
         success: function(results){
             console.log(x);
             console.log(results);
-            if (results[0] == 'Paper'){
+            if (results["winner"] == 'Paper'){
                 console.log("You Won!");
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
             }
-            else if (results[0] == 'None - Draw'){
+            else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
             }
@@ -86,11 +86,11 @@ $(document).ready(function(){
         success: function(results){
             console.log(x);
             console.log(results);
-            if (results[0] == 'Scissors'){
+            if (results["winner"] == 'Scissors'){
                 console.log("You Won!");
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
             }
-            else if (results[0] == 'None - Draw'){
+            else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
             }
