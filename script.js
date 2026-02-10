@@ -17,7 +17,6 @@ $(document).ready(function(){
             return "scissors";
         }
     };
-    //rock choice//
     $('#rock').click(function(){
         x = getRandomInt(1,3);
         $.ajax({
@@ -27,15 +26,11 @@ $(document).ready(function(){
             console.log(results);
             if (results["winner"] == 'Rock'){
                 console.log("You Won!");
-                $.ajax({
-                    url: "https://zenquotes.io/api/quotes/",
-                    success: function(z){
-                        console.log(z);
-                    }
-                });
+                $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
+                $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
             }
             else {
                 console.log("You LOST :(");
@@ -53,7 +48,6 @@ $(document).ready(function(){
             }
         });
     });
-    //paper choice//
     $('#paper').click(function(){
         x = getRandomInt(1,3);
         $.ajax({
@@ -63,12 +57,21 @@ $(document).ready(function(){
             console.log(results);
             if (results[0] == 'Paper'){
                 console.log("You Won!");
+                $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
             }
             else if (results[0] == 'None - Draw'){
                 console.log("It was a draw...");
+                $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
             }
             else{
                 console.log("You LOST :(");
+                $.ajax({
+                    url: "https://api.kanye.rest",
+                    success: function(q){
+                        $('#quoteLine').text(q["quote"]);
+                        console.log(q["quote"]);
+                    }
+                });
             }
             },
         error: function(xhr,status,error){
@@ -76,7 +79,6 @@ $(document).ready(function(){
             }
         });
     });
-    //scissors choice//
     $('#scissors').click(function(){
         x = getRandomInt(1,3);
         $.ajax({
@@ -86,12 +88,21 @@ $(document).ready(function(){
             console.log(results);
             if (results[0] == 'Scissors'){
                 console.log("You Won!");
+                $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
             }
             else if (results[0] == 'None - Draw'){
                 console.log("It was a draw...");
+                $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
             }
             else{
                 console.log("You LOST :(");
+                $.ajax({
+                    url: "https://api.kanye.rest",
+                    success: function(q){
+                        $('#quoteLine').text(q["quote"]);
+                        console.log(q["quote"]);
+                    }
+                });
             }
             },
         error: function(xhr,status,error){
