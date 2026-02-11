@@ -1,5 +1,7 @@
 $(document).ready(function(){
     var x = 0;
+    var wins = 0;
+    var losses = 0;
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -26,22 +28,27 @@ $(document).ready(function(){
             console.log(results);
             if (results["winner"] == 'Rock'){
                 console.log("You Won!");
+                wins = wins + 1;
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
-                $('#winOrLoss').text("Win");
+                $('#winOrLoss').text(`Win      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "green";
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
-                $('#winOrLoss').text("Draw");
+                $('#winOrLoss').text(`Draw      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "yellow";
             }
             else {
                 console.log("You LOST :(");
+                losses = losses + 1;
                 $.ajax({
                     url: "https://api.kanye.rest",
                     success: function(q){
                         $('#quoteLine').text(q["quote"]+" - Kanye");
                         console.log(q["quote"]);
-                        $('#winOrLoss').text("Loss");
+                        $('#winOrLoss').text(`Loss      ${wins} - ${losses}`);
+                        document.getElementById('results').style.backgroundColor = "red";
                     }
                 });
             }
@@ -60,22 +67,27 @@ $(document).ready(function(){
             console.log(results);
             if (results["winner"] == 'Paper'){
                 console.log("You Won!");
+                wins = wins + 1;
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
-                $('#winOrLoss').text("Win");
+                $('#winOrLoss').text(`Win      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "green";
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
-                $('#winOrLoss').text("Draw");
+                $('#winOrLoss').text(`Draw      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "yellow";
             }
             else{
                 console.log("You LOST :(");
                 $.ajax({
                     url: "https://api.kanye.rest",
                     success: function(q){
+                        losses = losses + 1;
                         $('#quoteLine').text(q["quote"]+" - Kanye");
                         console.log(q["quote"]);
-                        $('#winOrLoss').text("Lost");
+                        $('#winOrLoss').text(`Loss      ${wins} - ${losses}`);
+                        document.getElementById('results').style.backgroundColor = "red";
                     }
                 });
             }
@@ -94,22 +106,27 @@ $(document).ready(function(){
             console.log(results);
             if (results["winner"] == 'Scissors'){
                 console.log("You Won!");
+                wins = wins + 1;
                 $('#quoteLine').text("Great win! You have been saved from Kanye's quotes.");
-                $('#winOrLoss').text("Win");
+                $('#winOrLoss').text(`Win      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "green";
             }
             else if (results["winner"] == 'None - Draw'){
                 console.log("It was a draw...");
                 $('#quoteLine').text("Hmm. You're getting too close to loosing. Kanye's watching...");
-                $('#winOrLoss').text("Draw");
+                $('#winOrLoss').text(`Draw      ${wins} - ${losses}`);
+                document.getElementById('results').style.backgroundColor = "yellow";
             }
             else{
                 console.log("You LOST :(");
                 $.ajax({
                     url: "https://api.kanye.rest",
                     success: function(q){
+                        losses = losses + 1;
                         $('#quoteLine').text(q["quote"]);
                         console.log(q["quote"]+" - Kanye");
-                        $('#winOrLoss').text("Loss");
+                        $('#winOrLoss').text(`Loss      ${wins} - ${losses}`);
+                        document.getElementById('results').style.backgroundColor = "red";
                     }
                 });
             }
